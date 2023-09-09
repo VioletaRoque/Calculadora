@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,6 +34,9 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSumar = new javax.swing.JButton();
+        btnRestar = new javax.swing.JButton();
+        btnMultiplicar = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,6 +45,17 @@ public class Calculadora_IU extends javax.swing.JFrame {
         jLabel2.setText("NRO2");
 
         btnSumar.setText("SUMAR");
+        btnSumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumarActionPerformed(evt);
+            }
+        });
+
+        btnRestar.setText("RESTAR");
+
+        btnMultiplicar.setText("MULTIPLICAR");
+
+        btnDividir.setText("DIVIDIR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,7 +71,13 @@ public class Calculadora_IU extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(btnSumar)
-                        .addGap(0, 234, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRestar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMultiplicar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDividir)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -73,12 +96,24 @@ public class Calculadora_IU extends javax.swing.JFrame {
                     .addComponent(txtNro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSumar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSumar)
+                    .addComponent(btnRestar)
+                    .addComponent(btnMultiplicar)
+                    .addComponent(btnDividir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
+        // TODO add your handling code here:
+        double nro1=Double.parseDouble(txtNro1.getText());
+        double nro2=Double.parseDouble(txtNro2.getText());
+        double sumar=nro1+nro2;
+        JOptionPane.showMessageDialog(this, "La suma es: "+sumar);
+    }//GEN-LAST:event_btnSumarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +151,9 @@ public class Calculadora_IU extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDividir;
+    private javax.swing.JButton btnMultiplicar;
+    private javax.swing.JButton btnRestar;
     private javax.swing.JButton btnSumar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
